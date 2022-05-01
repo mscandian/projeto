@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:marvelapp/Models/Character.dart';
-import 'package:marvelapp/API/Characters_Response.dart';
+import 'package:marvelapp/API/Characters_APIHelper.dart';
 import 'package:marvelapp/Views/characters_listitem.dart';
 import 'package:marvelapp/Views/characters_view.dart';
 import 'package:marvelapp/Views/login_page.dart';
@@ -16,7 +16,7 @@ class CharactersPage extends StatefulWidget {
 }
 
 class _CharactersPageState extends State<CharactersPage> implements CharactersView {
-  CharacterResponse apiController;
+  CharacterAPIHelper apiController;
   var characters = <Character>[];
   final _editTextController = TextEditingController();
   var isLoading = false;
@@ -27,7 +27,7 @@ class _CharactersPageState extends State<CharactersPage> implements CharactersVi
   @override
   void initState() {
     super.initState();
-    apiController = CharacterResponse(this);
+    apiController = CharacterAPIHelper(this);
     apiController.getCharacters();
   }
 
