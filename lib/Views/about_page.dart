@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:marvelapp/API/Characters_Response.dart';
+import 'package:marvelapp/API/Characters_APIHelper.dart';
 import 'package:marvelapp/Views/characters.dart';
 import 'package:marvelapp/Views/login_page.dart';
 
@@ -11,7 +11,7 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  CharacterResponse apiController;
+  CharacterAPIHelper apiController;
   var selectedItem = '';
 
 @override

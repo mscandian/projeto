@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image/flutter_image.dart';
-import 'package:marvelapp/API/Comics_Response.dart';
+import 'package:marvelapp/API/Comics_APIHelper.dart';
 import 'package:marvelapp/Models/Character.dart';
 import 'package:marvelapp/Models/Comics.dart';
 import 'package:marvelapp/Views/characters_details_view.dart';
@@ -28,7 +28,7 @@ class CharactersDetails extends StatefulWidget {
 
 class _CharactersDetailsState extends State<CharactersDetails> implements CharactersDetailsView {
 
-  ComicResponse apiController;
+  ComicAPIHelper apiController;
   var comics = <Comic>[];
   var _editTextController = TextEditingController();
   var isLoading = false;
@@ -46,7 +46,7 @@ class _CharactersDetailsState extends State<CharactersDetails> implements Charac
   void initState() {
     super.initState();
     character = widget.character;
-    apiController = ComicResponse(this, character.id);
+    apiController = ComicAPIHelper(this, character.id);
     apiController.getComics();
     _sliderController = CarouselSliderController();
     checkFavorite();

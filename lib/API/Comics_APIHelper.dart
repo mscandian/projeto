@@ -7,7 +7,7 @@ import 'package:crypto/crypto.dart' as crypto;
 import 'package:marvelapp/Models/Comics.dart';
 import 'package:marvelapp/Views/characters_details_view.dart';
 
-class ComicResponse {
+class ComicAPIHelper { 
   final itemsPerPage = 21;
   final url = "https://gateway.marvel.com" + "/v1/public/comics";
   var page = 0;
@@ -17,7 +17,7 @@ class ComicResponse {
   CharactersDetailsView view;
   int characterId;
 
-  ComicResponse(this.view, this.characterId);
+  ComicAPIHelper(this.view, this.characterId);
 
   void getComics() async {
     final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
